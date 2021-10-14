@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Motion Layout file to animate the file transferring between the web symbol and devile symbol on opening of the details page-->
+
+<MotionScene xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Transition
+        app:constraintSetStart="@+id/start"
+        app:constraintSetEnd="@+id/end"
+        app:autoTransition="animateToEnd"
+        app:duration="7000">
+
+    </Transition>
+
+    <KeyFrameSet>
+
+         <!-- KeyAttributes modify attributes during motion -->
+        <KeyAttribute
+            app:framePosition="50"
+            app:motionTarget="@id/file"
+            android:scaleY="1.5"
+            android:scaleX="1.5"
+            android:rotation="720"
+            />
+        <KeyAttribute
+            app:framePosition="100"
+            app:motionTarget="@id/file"
+            android:rotation="1440"
+            />
+
+    </KeyFrameSet>
+
+    <ConstraintSet android:id="@+id/start">
+
+        <Constraint
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/file"
+            android:layout_marginBottom="48dp"
+            app:layout_constraintStart_toEndOf="@+id/web"
+            app:layout_constraintBottom_toBottomOf="@id/holder"/>
+        <Constraint
+            app:layout_constraintTop_toBottomOf="@+id/textViewStatus"
+            android:id="@+id/button2"
+            app:layout_constraintBottom_toTopOf="@+id/button_done"
+            app:layout_editor_absoluteY="348dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </ConstraintSet>
+
+    <!-- Constraints to apply at the end of the animation -->
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/file"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="48dp"
+            app:layout_constraintEnd_toStartOf="@+id/device"
+            app:layout_constraintBottom_toBottomOf="@id/holder" />
+    </ConstraintSet>
+
+</MotionScene>
