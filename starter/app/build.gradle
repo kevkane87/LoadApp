@@ -5,6 +5,9 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
     compileSdkVersion 30
     defaultConfig {
         applicationId "com.udacity"
